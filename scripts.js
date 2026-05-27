@@ -242,12 +242,12 @@ function formatValue(value) {
 
 /* ================= PALPITES ================= */
 
-function montarLinhaJogo(timeA, palpiteA, palpiteB, timeB) {
+function montarLinhaJogo(timeA, palpiteA, palpiteB, timeB, versus = "X") {
   return `
     <div class="jogo-linha" role="presentation">
       <span class="time-a">${timeA}</span>
       <span class="palpite-a">${palpiteA}</span>
-      <span class="versus">X</span>
+      <span class="versus">${versus}</span>
       <span class="palpite-b">${palpiteB}</span>
       <span class="time-b">${timeB}</span>
     </div>
@@ -279,11 +279,12 @@ function atualizarPalpitesFiltrados() {
       const pA = formatValue(r[part.col]);
       const pB = formatValue(r[part.col + 2]);
       const pts = formatValue(r[part.col + 3]);
+      const versus = ocultarDados ? "-" : "X";
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${jogo.grupo}</td>
-        <td>${montarLinhaJogo(jogo.timeA, pA, pB, jogo.timeB)}</td>
+        <td>${montarLinhaJogo(jogo.timeA, pA, pB, jogo.timeB, versus)}</td>
         <td>${pts}</td>
       `;
       tbody.appendChild(tr);
