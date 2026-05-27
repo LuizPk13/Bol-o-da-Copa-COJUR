@@ -370,3 +370,36 @@ function iniciarCountdown() {
 
 // Inicia a contagem quando o script carregar
 iniciarCountdown();
+
+/* ================= CARROSSEL DE FOTOS (telas ≤ 960px) ================= */
+
+function initCarousel() {
+  if (window.innerWidth > 960) return;
+
+  document.querySelectorAll(".side-column").forEach((col) => {
+    // Evita inicializar duas vezes
+    if (col.querySelector(".side-track")) return;
+
+    const photos = Array.from(col.querySelectorAll(".side-photo"));
+    if (!photos.length) return;
+
+    // Cria o trilho
+    const track = document.createElement("div");
+    track.className = "side-track";
+
+    // Move as fotos originais para o trilho
+    photos.forEach((p) => track.appendChild(p));
+
+    // Duplica para o loop ficar contínuo
+    photos.forEach((p) => track.appendChild(p.cloneNode(true)));
+
+    col.appendChild(track);
+  });
+}
+
+// Inicializa após o carregamento do DOM
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCarousel);
+} else {
+  initCarousel();
+}
