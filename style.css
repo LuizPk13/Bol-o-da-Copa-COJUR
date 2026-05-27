@@ -247,6 +247,7 @@ select{
   color: var(--ink);
   opacity: .82;
   font-size: .92rem;
+  margin: 0 auto;  
 }
 
 .hidden{ display: none; }
