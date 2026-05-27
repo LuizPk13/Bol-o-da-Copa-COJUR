@@ -1,5 +1,5 @@
 let rowsGlobal = [];
-const ocultarDados = false;
+const ocultarDados = true;
 let grupoAtualSelecionado = null;
 
 const SHEET_URL =
