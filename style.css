@@ -242,6 +242,13 @@ select{
   background: rgba(255,255,255,.95);
 }
 
+.privacy-message{
+  display: inline-block;
+  color: var(--ink);
+  opacity: .82;
+  font-size: .92rem;
+}
+
 .hidden{ display: none; }
 
 /* ════════════════════════════════════════════════════════════

@@ -1,4 +1,6 @@
 let rowsGlobal = [];
+const ocultarDados = true;
+let grupoAtualSelecionado = null;
 
 const SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZmK1DRlPhgRCRDNGl2NHe3KhUHv5RciZMd5RF6OadQBO6kfEd73zm8-vgrSZrnqpyts0z28Ep3yR9/pub?gid=2131847576&single=true&output=csv";
@@ -195,7 +197,7 @@ function renderRanking(ranking) {
 
   ranking.forEach((p) => {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${p.nome}</td><td>${p.pontos}</td>`;
+    tr.innerHTML = `<td>${p.nome}</td><td>${formatValue(p.pontos)}</td>`;
     tbody.appendChild(tr);
   });
 }
@@ -230,6 +232,12 @@ function renderSelectGrupos(grupos) {
   });
 
   selGrupo.onchange = atualizarPalpitesFiltrados;
+}
+
+function formatValue(value) {
+  if (ocultarDados) return "-";
+  const texto = String(value ?? "").trim();
+  return texto || "-";
 }
 
 /* ================= PALPITES ================= */
@@ -268,9 +276,9 @@ function atualizarPalpitesFiltrados() {
     g.jogos.forEach((jogo) => {
       const r = rowsGlobal[jogo.linha] || [];
 
-      const pA = (r[part.col] ?? "").trim() || "-";
-      const pB = (r[part.col + 2] ?? "").trim() || "-";
-      const pts = r[part.col + 3] ?? "";
+      const pA = formatValue(r[part.col]);
+      const pB = formatValue(r[part.col + 2]);
+      const pts = formatValue(r[part.col + 3]);
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
@@ -294,15 +302,16 @@ function mostrarTabelaDoGrupo(grupo) {
   const corpo = document.getElementById("corpoGrupo");
   if (!titulo || !corpo) return;
 
+  grupoAtualSelecionado = grupo;
   titulo.textContent = grupo.nome;
   corpo.innerHTML = "";
 
   grupo.jogos.forEach((jogo) => {
     const r = rowsGlobal[jogo.linha] || [];
 
-    const placarA = r[1] || "-";
-    const x = r[2] || "x";
-    const placarB = r[3] || "-";
+    const placarA = formatValue(r[1]);
+    const x = ocultarDados ? "-" : r[2] || "x";
+    const placarB = formatValue(r[3]);
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
