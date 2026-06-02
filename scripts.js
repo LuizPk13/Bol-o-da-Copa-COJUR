@@ -1,5 +1,4 @@
 let rowsGlobal = [];
-const ocultarDados = false;
 let grupoAtualSelecionado = null;
 
 const SHEET_URL =
@@ -231,11 +230,18 @@ function renderSelectGrupos(grupos) {
     selGrupo.appendChild(op);
   });
 
-  selGrupo.onchange = atualizarPalpitesFiltrados;
+  selGrupo.onchange = () => {
+  atualizarPalpitesFiltrados();
+
+  const grupoSelecionado = selGrupo.value;
+  if (!grupoSelecionado) return;
+
+  const grupo = dados.grupos.find((g) => g.nome === grupoSelecionado);
+  if (grupo) mostrarTabelaDoGrupo(grupo);
+  };
 }
 
 function formatValue(value) {
-  if (ocultarDados) return "-";
   const texto = String(value ?? "").trim();
   return texto || "-";
 }
@@ -279,12 +285,11 @@ function atualizarPalpitesFiltrados() {
       const pA = formatValue(r[part.col]);
       const pB = formatValue(r[part.col + 2]);
       const pts = formatValue(r[part.col + 3]);
-      const versus = ocultarDados ? "-" : "X";
 
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${jogo.grupo}</td>
-        <td>${montarLinhaJogo(jogo.timeA, pA, pB, jogo.timeB, versus)}</td>
+        <td>${montarLinhaJogo(jogo.timeA, pA, pB, jogo.timeB, "X")}</td>
         <td>${pts}</td>
       `;
       tbody.appendChild(tr);
@@ -311,14 +316,13 @@ function mostrarTabelaDoGrupo(grupo) {
     const r = rowsGlobal[jogo.linha] || [];
 
     const placarA = formatValue(r[1]);
-    const x = ocultarDados ? "-" : r[2] || "x";
     const placarB = formatValue(r[3]);
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${jogo.timeA}</td>
       <td>${placarA}</td>
-      <td>${x}</td>
+      <td>${r[2] || "x"}</td>
       <td>${placarB}</td>
       <td>${jogo.timeB}</td>
     `;

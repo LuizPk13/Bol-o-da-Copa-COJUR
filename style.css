@@ -354,15 +354,15 @@ select{
 #palpites .time-a{
   text-align: right;
   justify-self: end;
-  font-size: .86em;
-  font-weight: 600;
+  font-size: .999999em;
+  font-weight: 400;
 }
 
 #palpites .time-b{
   text-align: left;
   justify-self: start;
-  font-size: .86em;
-  font-weight: 600;
+  font-size: .99999em;
+  font-weight: 400;
 }
 
 #palpites .palpite-a,
