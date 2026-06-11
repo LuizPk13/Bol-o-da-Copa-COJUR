@@ -110,28 +110,63 @@
         <section class="card">
           <h2>Palpites</h2>
 
-          <div class="row filtros">
-            <label for="participante">Participante:</label>
-            <select id="participante"></select>
-
-            <label for="grupoFiltro">Grupo:</label>
-            <select id="grupoFiltro">
-              <option value="">Todos</option>
-            </select>
+          <div class="grid" style="margin-bottom: 15px;">
+            <button id="tab-participante" class="pill ativo" aria-selected="true">Por Participante</button>
+            <button id="tab-jogo" class="pill" aria-selected="false">Por Jogo</button>
           </div>
 
-          <div id="palpitesWrap" class="hidden">
-            <h3 id="nomeSelecionado"></h3>
-            <table class="table" id="palpites">
-              <thead>
-                <tr>
-                  <th>Grupo</th>
-                  <th>Jogo</th>
-                  <th>Pontos</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <div id="painel-participante">
+            <div class="row filtros">
+              <label for="participante">Participante:</label>
+              <select id="participante"></select>
+
+              <label for="grupoFiltro">Grupo:</label>
+              <select id="grupoFiltro">
+                <option value="">Todos</option>
+              </select>
+            </div>
+
+            <div id="palpitesWrap" class="hidden">
+              <h3 id="nomeSelecionado"></h3>
+              <table class="table" id="palpites">
+                <thead>
+                  <tr>
+                    <th>Grupo</th>
+                    <th>Jogo</th>
+                    <th>Pontos</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="painel-jogo" class="hidden">
+            <div class="row filtros">
+              <label for="jogoGrupoFiltro">Grupo:</label>
+              <select id="jogoGrupoFiltro">
+                <option value="">Selecione um grupo...</option>
+              </select>
+
+              <label for="jogoFiltro">Jogo:</label>
+              <select id="jogoFiltro">
+                <option value="">Selecione um jogo...</option>
+              </select>
+            </div>
+
+            <div id="porJogoWrap" class="hidden">
+              <h3 id="tituloJogoSelecionado" style="text-align: center; padding-top: 15px;"></h3>
+              <table class="table" id="tabelaPorJogo">
+                <thead>
+                  <tr>
+                    <th>Participante</th>
+                    <th>Palpite</th>
+                    <th>Pontos</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </section>
 

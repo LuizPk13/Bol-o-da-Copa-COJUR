@@ -684,3 +684,72 @@ select{
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ════════════════════════════════════════════════════════════
+   AJUSTES PARA A NOVA FUNCIONALIDADE (MODO POR JOGO)
+   ════════════════════════════════════════════════════════════ */
+
+/* Estilização para os botões funcionarem como Abas nativas */
+.card button.pill {
+  border: 2px solid rgba(11,107,58,.55);
+  font-family: inherit;
+  font-size: 11pt;
+}
+
+/* Garante que a estrutura de grid dos times funcione igual na nova tabela */
+#tabelaPorJogo th, 
+#tabelaPorJogo td { 
+  text-align: center; 
+}
+
+#tabelaPorJogo th:nth-child(1),
+#tabelaPorJogo td:nth-child(1) { 
+  text-align: left;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+#tabelaPorJogo th:nth-child(3),
+#tabelaPorJogo td:nth-child(3) { 
+  width: 80px; 
+  white-space: nowrap; 
+}
+
+/* Reaproveita o comportamento de linha dos jogos da primeira tabela */
+#tabelaPorJogo .jogo-linha {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 2.2rem 1.2rem 2.2rem minmax(0,1fr);
+  align-items: center;
+  justify-items: center;
+  column-gap: 6px;
+  width: min(100%, 620px);
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+#tabelaPorJogo .jogo-linha span { display: block; }
+
+#tabelaPorJogo .time-a { text-align: right; justify-self: end; }
+#tabelaPorJogo .time-b { text-align: left; justify-self: start; }
+#tabelaPorJogo .palpite-a, #tabelaPorJogo .palpite-b, #tabelaPorJogo .versus {
+  text-align: center;
+  font-weight: 900;
+  min-width: 2ch;
+}
+#tabelaPorJogo .versus { opacity: 0.7; font-weight: 800; }
+
+/* Adaptações de responsividade para telas menores */
+@media (max-width: 960px) {
+  .card button.pill { font-size: 12px; }
+  #tabelaPorJogo th, #tabelaPorJogo td { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+  .card button.pill { font-size: 11px; }
+  #tabelaPorJogo th, #tabelaPorJogo td { font-size: 11px; }
+  #tabelaPorJogo .time-a, #tabelaPorJogo .time-b { font-size: .80em; }
+  #tabelaPorJogo .jogo-linha {
+    grid-template-columns: minmax(0,1fr) 1.8rem 1rem 1.8rem minmax(0,1fr);
+    column-gap: 3px;
+  }
+}
