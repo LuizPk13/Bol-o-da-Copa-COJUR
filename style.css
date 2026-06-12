@@ -180,6 +180,15 @@ body{
   margin-bottom: 4px;
 }
 
+.taca_bolao{
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 2px solid rgba(255,223,0,.70);
+  box-shadow: var(--shadow);
+}
+
 /* ════════════════════════════════════════════════════════════
    GRUPOS — PILLS
    ════════════════════════════════════════════════════════════ */
