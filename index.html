@@ -1,277 +1,173 @@
 ﻿<!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bolão da COJUR</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="top">
-      <img
-        class="header-bg"
-        src="Imagens/Cabeçalho.png"
-        alt=""
-        aria-hidden="true"
-        decoding="async"
-      />
-      <h1>Bolão da Copa</h1>
-      <p>Created by Luiz and designed by André e Matheus.</p>
-    </header>
 
-    <div class="content-shell">
-      <aside class="side-column side-column-left">
-        <img
-          class="side-photo"
-          src="Imagens/André.jpeg"
-          alt="Foto do André"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Cristiano.jpeg"
-          alt="Foto do Cristiano"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Neide.jpeg"
-          alt="Foto da Neide"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Generico-Maurcio.jpeg"
-          alt="Foto do Generico-Maurcio"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Matheus III.jpeg"
-          alt="Foto do Matheus III"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Evelyn.jpeg"
-          alt="Foto da Evelyn"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Jaime.jpeg"
-          alt="Foto de Jaime"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Samanta.jpeg"
-          alt="Foto da Samanta"
-          loading="lazy"
-          decoding="async"
-        />
-      </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bolão da COJUR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <main class="container">
-        <section class="card">
-          <h2>Grupos</h2>
-          <div id="grupos" class="grid"></div>
-        </section>
+<body>
+  <header class="top">
+    <img class="header-bg" src="Imagens/Cabeçalho.png" alt="" aria-hidden="true" decoding="async" />
+    <h1>Bolão da Copa</h1>
+    <p>Created by Luiz and designed by André e Matheus.</p>
+  </header>
 
-        <section class="card">
-          <h2 id="tituloGrupo">Selecione um grupo</h2>
+  <div class="content-shell">
+    <aside class="side-column side-column-left">
+      <img class="side-photo" src="Imagens/André.jpeg" alt="Foto do André" decoding="async" />
+      <img class="side-photo" src="Imagens/Cristiano.jpeg" alt="Foto do Cristiano" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Neide.jpeg" alt="Foto da Neide" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Generico-Maurcio.jpeg" alt="Foto do Generico-Maurcio" loading="lazy"
+        decoding="async" />
+      <img class="side-photo" src="Imagens/Matheus III.jpeg" alt="Foto do Matheus III" loading="lazy"
+        decoding="async" />
+      <img class="side-photo" src="Imagens/Evelyn.jpeg" alt="Foto da Evelyn" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Jaime.jpeg" alt="Foto de Jaime" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Samanta.jpeg" alt="Foto da Samanta" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/pai_da_evelyn.jpeg" alt="Foto pai da Evelyn" loading="lazy" decoding="async" />
+    </aside>
 
-          <table class="table" id="tabelaGrupo">
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Placar</th>
-                <th></th>
-                <th>Placar</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody id="corpoGrupo"></tbody>
-          </table>
-        </section>
+    <main class="container">
+      <section class="card">
+        <h2>Grupos</h2>
+        <div id="grupos" class="grid"></div>
+      </section>
 
-        <section class="card">
-          <h2>Palpites</h2>
+      <section class="card">
+        <h2 id="tituloGrupo">Selecione um grupo</h2>
 
-          <div class="grid" style="margin-bottom: 15px;">
-            <button id="tab-participante" class="pill ativo" aria-selected="true">Por Participante</button>
-            <button id="tab-jogo" class="pill" aria-selected="false">Por Jogo</button>
+        <table class="table" id="tabelaGrupo">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Placar</th>
+              <th></th>
+              <th>Placar</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="corpoGrupo"></tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Palpites</h2>
+
+        <div class="grid" style="margin-bottom: 15px;">
+          <button id="tab-participante" class="pill ativo" aria-selected="true">Por Participante</button>
+          <button id="tab-jogo" class="pill" aria-selected="false">Por Jogo</button>
+        </div>
+
+        <div id="painel-participante">
+          <div class="row filtros">
+            <label for="participante">Participante:</label>
+            <select id="participante"></select>
+
+            <label for="grupoFiltro">Grupo:</label>
+            <select id="grupoFiltro">
+              <option value="">Todos</option>
+            </select>
           </div>
 
-          <div id="painel-participante">
-            <div class="row filtros">
-              <label for="participante">Participante:</label>
-              <select id="participante"></select>
+          <div id="palpitesWrap" class="hidden">
+            <h3 id="nomeSelecionado"></h3>
+            <table class="table" id="palpites">
+              <thead>
+                <tr>
+                  <th>Grupo</th>
+                  <th>Jogo</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
 
-              <label for="grupoFiltro">Grupo:</label>
-              <select id="grupoFiltro">
-                <option value="">Todos</option>
-              </select>
-            </div>
+        <div id="painel-jogo" class="hidden">
+          <div class="row filtros">
+            <label for="jogoGrupoFiltro">Grupo:</label>
+            <select id="jogoGrupoFiltro">
+              <option value="">Selecione um grupo...</option>
+            </select>
 
-            <div id="palpitesWrap" class="hidden">
-              <h3 id="nomeSelecionado"></h3>
-              <table class="table" id="palpites">
-                <thead>
-                  <tr>
-                    <th>Grupo</th>
-                    <th>Jogo</th>
-                    <th>Pontos</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
+            <label for="jogoFiltro">Jogo:</label>
+            <select id="jogoFiltro">
+              <option value="">Selecione um jogo...</option>
+            </select>
           </div>
 
-          <div id="painel-jogo" class="hidden">
-            <div class="row filtros">
-              <label for="jogoGrupoFiltro">Grupo:</label>
-              <select id="jogoGrupoFiltro">
-                <option value="">Selecione um grupo...</option>
-              </select>
-
-              <label for="jogoFiltro">Jogo:</label>
-              <select id="jogoFiltro">
-                <option value="">Selecione um jogo...</option>
-              </select>
-            </div>
-
-            <div id="porJogoWrap" class="hidden">
-              <h3 id="tituloJogoSelecionado" style="text-align: center; padding-top: 15px;"></h3>
-              <table class="table" id="tabelaPorJogo">
-                <thead>
-                  <tr>
-                    <th>Participante</th>
-                    <th>Palpite</th>
-                    <th>Pontos</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
-            </div>
+          <div id="porJogoWrap" class="hidden">
+            <h3 id="tituloJogoSelecionado" style="text-align: center; padding-top: 15px;"></h3>
+            <table class="table" id="tabelaPorJogo">
+              <thead>
+                <tr>
+                  <th>Participante</th>
+                  <th>Palpite</th>
+                  <th>Pontos</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="card">
-          <h2>Top participantes</h2>
-          <table class="table" id="ranking">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Pontos</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </section>
+      <section class="card">
+        <h2>Top participantes</h2>
+        <table class="table" id="ranking">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Pontos</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
-        <section class="card">
-          <h2>Regras de Pontuação.</h2>
-          <ul>
-            <li><strong>Placar correto</strong>: 10 pts</li>
-            <li>
-              <strong>Vencedor e o nº de gols de algum time</strong>: 7 pts
-            </li>
-            <li>
-              <strong>Vencedor ou empate com placar errado</strong>: 5 pts
-            </li>
-            <li><strong>Apenas o gol de alguma das partes</strong>: 2 pts</li>
-            <li><strong>Placar errado</strong>: 0 pts</li>
-          </ul>
-        </section>
+      <section class="card">
+        <h2>Regras de Pontuação.</h2>
+        <ul>
+          <li><strong>Placar correto</strong>: 10 pts</li>
+          <li>
+            <strong>Vencedor e o nº de gols de algum time</strong>: 7 pts
+          </li>
+          <li>
+            <strong>Vencedor ou empate com placar errado</strong>: 5 pts
+          </li>
+          <li><strong>Apenas o gol de alguma das partes</strong>: 2 pts</li>
+          <li><strong>Placar errado</strong>: 0 pts</li>
+        </ul>
+      </section>
 
-        <section class="card">
-          <h2>Prêmio a receber R$ 1.000,00</h2>
-          <img class="taca_bolao" src="Imagens/campeao_do_bolao.png" alt="Foto da Taça">
-        </section>
-      </main>
+      <section class="card">
+        <h2>Prêmio a receber R$ 1.000,00</h2>
+        <img class="taca_bolao" src="Imagens/taca_bolao.png" alt="Foto da Taça" loanding="lazy" decoding="async">
+      </section>
+    </main>
 
-      <aside class="side-column side-column-left">
-        <img
-          class="side-photo"
-          src="Imagens/Luiz.jpeg"
-          alt="Foto do Luiz"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Dama.jpeg"
-          alt="Foto de Dama"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Ramon.jpeg"
-          alt="Ramon"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Fabiola.jpeg"
-          alt="Foto da Fabiola"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          class="side-photo"
-          src="Imagens/Vanessa.jpeg"
-          alt="Foto da Vanessa"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-        class="side-photo"
-          src="Imagens/Dr.Felipe.jpeg"
-          alt="Foto do Dr.Felipe"
-          loading="lazy"
-          decoding="async"
-          />
-          <img
-          class="side-photo"
-          src="Imagens/MatheusG.jpeg"
-          alt="Foto do MetheusG"
-          loading="lazy"
-          decoding="async"
-          />
-          <img
-          class="side-photo"
-          src="Imagens/Dr.Rhenan.jpeg"
-          alt="Foto do Dr.Rhenan"
-          loading="lazy"
-          decoding="async"
-          />
-          <img
-            class="side-photo"
-            src="Imagens/Kaylane.jpeg"
-            alt="Foto da Kaylane"
-            loading="lazy"
-            decoding="async"
-          />
-      </aside>
-    </div>
+    <aside class="side-column side-column-left">
+      <img class="side-photo" src="Imagens/Luiz.jpeg" alt="Foto do Luiz" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Dama.jpeg" alt="Foto de Dama" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Ramon.jpeg" alt="Ramon" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Fabiola.jpeg" alt="Foto da Fabiola" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Vanessa.jpeg" alt="Foto da Vanessa" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Dr.Felipe.jpeg" alt="Foto do Dr.Felipe" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/MatheusG.jpeg" alt="Foto do MetheusG" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Dr.Rhenan.jpeg" alt="Foto do Dr.Rhenan" loading="lazy" decoding="async" />
+      <img class="side-photo" src="Imagens/Kaylane.jpeg" alt="Foto da Kaylane" loading="lazy" decoding="async" />
+    </aside>
+  </div>
 
-    <!-- SheetJS (ler XLSX no navegador) -->
-    <script src="scripts.js"></script>
-  </body>
+  <!-- SheetJS (ler XLSX no navegador) -->
+  <script src="scripts.js"></script>
+</body>
+
 </html>
