@@ -168,6 +168,7 @@ function renderRanking(ranking) {
     else if (colocacao === 19) medalha = " ⚓";
     else if (colocacao === 20) medalha = " 🔦";
 
+    
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${colocacao}º${medalha}</td><td>${p.nome}</td><td>${formatValue(p.pontos)}</td>`;
     tbody.appendChild(tr);
