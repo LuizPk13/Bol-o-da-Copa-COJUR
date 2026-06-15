@@ -151,10 +151,22 @@ function renderGrupos(grupos) {
 function renderRanking(ranking) {
   const tbody = document.querySelector("#ranking tbody");
   if (!tbody) return;
+
   tbody.innerHTML = "";
-  ranking.forEach((p) => {
+  let colocacao = 1;
+  ranking.forEach((p, idx) => {
+    // Mantém mesma colocação para empate de pontos
+    if (idx > 0 && p.pontos < ranking[idx - 1].pontos) {
+      colocacao = idx + 1;
+    }
+
+    let medalha = "";
+    if (colocacao === 1) medalha = " 🥇";
+    else if (colocacao === 2) medalha = " 🥈";
+    else if (colocacao === 3) medalha = " 🥉";
+
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${p.nome}</td><td>${formatValue(p.pontos)}</td>`;
+    tr.innerHTML = `<td>${colocacao}º${medalha}</td><td>${p.nome}</td><td>${formatValue(p.pontos)}</td>`;
     tbody.appendChild(tr);
   });
 }
@@ -317,12 +329,20 @@ function atualizarPorJogo(nomeGrupo) {
   
   titulo.textContent = `${jogo.timeA} x ${jogo.timeB}`;
   tbody.innerHTML = "";
-  
-  dados.participantes.forEach((part) => {
+
+  // Monta os dados de cada participante e ordena por pontos (maior → menor)
+  const linhas = dados.participantes.map((part) => {
     const r = rowsGlobal[jogo.linha] || [];
     const pA = formatValue(r[part.col]);
     const pB = formatValue(r[part.col + 2]);
     const pts = formatValue(r[part.col + 3]);
+    const ptsNum = Number(String(r[part.col + 3] ?? "").replace(",", "."));
+    return { part, pA, pB, pts, ptsNum: Number.isFinite(ptsNum) ? ptsNum : -1 };
+  });
+
+  linhas.sort((a, b) => b.ptsNum - a.ptsNum);
+
+  linhas.forEach(({ part, pA, pB, pts }) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${part.nome}</td>

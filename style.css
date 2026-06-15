@@ -394,13 +394,31 @@ select{
   table-layout: fixed;
 }
 
+/* Coluna #: fixa, alinhada à esquerda */
+#ranking th:nth-child(1),
+#ranking td:nth-child(1){
+  text-align: left;
+  white-space: nowrap;
+  width: 90px;
+  font-weight: 800;
+  color: var(--green-2);
+}
+
+/* Coluna Nome: alinhada à esquerda */
 #ranking th:nth-child(2),
-#ranking td:nth-child(2){ text-align: right; }
+#ranking td:nth-child(2){
+  text-align: left;
+}
+
+/* Coluna Pontos: alinhada à direita */
+#ranking th:nth-child(3),
+#ranking td:nth-child(3){
+  text-align: right;
+  width: 70px;
+  white-space: nowrap;
+}
 
 .table tbody tr:nth-child(even){ background: rgba(0,0,0,.03); }
-.table tbody tr.top1{ background: rgba(255,223,0,.25); }
-.table tbody tr.top2{ background: rgba(0,39,118,.10); }
-.table tbody tr.top3{ background: rgba(255,223,0,.16); }
 
 
 /* ════════════════════════════════════════════════════════════
