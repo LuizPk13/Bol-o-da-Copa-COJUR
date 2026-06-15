@@ -7,6 +7,7 @@ const dados = {
   ranking: [],
 };
 
+
 /* ================= CARREGAMENTO ================= */
 carregarDadosInicial();
 
