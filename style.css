@@ -399,7 +399,7 @@ select{
 #ranking td:nth-child(1){
   text-align: left;
   white-space: nowrap;
-  width: 90px;
+  width: 2.7rem;
   font-weight: 800;
   color: var(--green-2);
 }
